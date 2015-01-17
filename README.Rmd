@@ -13,7 +13,7 @@ mydata1 = tapply(data$steps, data$date, sum, na.rm = TRUE)
 hist(mydata1, main = "Total number of steps taken each day", col = "red", breaks = 20)
 ```
 
-8. Calculate and report the mean and median total number of steps taken per day
+88 Calculate and report the mean and median total number of steps taken per day
 ```{r, echo=TRUE}
 mymean = mean(mydata1)
 mytotal = median(mydata1)
