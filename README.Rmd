@@ -4,31 +4,27 @@
 2. Process/transform the data (if necessary) into a format suitable for your analysis
 ```{r}
 data <- read.csv("activity.csv")
-
 ```
 
 ### What is mean total number of steps taken per day?
 1. Make a histogram of the total number of steps taken each day
 ```{r, echo=TRUE}
-temp1 = tapply(data$steps, data$date, sum, na.rm = TRUE)
-hist(temp1, breaks = 20, main = "mean total number of steps", xlab = "")
+mydata1 = tapply(data$steps, data$date, sum, na.rm = TRUE)
+hist(mydata1, main = "Total number of steps taken each day", col = "red", breaks = 20)
 ```
 
 2. Calculate and report the mean and median total number of steps taken per day
 ```{r, echo=TRUE}
-mean(temp1)
-median(temp1)
+mymean = mean(mydata1)
+mytotal = median(mydata1)
 ```
-
-
-
 ### What is the average daily activity pattern?
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken,
 
 averaged across all days (y-axis)
 ```{r, echo=TRUE}
-temp2 = tapply(data$steps, as.factor(data$interval),mean, na.rm = TRUE)
-daily_activity = data.frame(average = temp2, interval = unique(data$interval), row.names = NULL)
+mydata2 = tapply(data$steps, as.factor(data$interval), mean, na.rm = TRUE)
+daily_activity = data.frame(average = mydata2, interval = unique(data$interval), row.names = NULL)
 with(daily_activity,  plot(interval,average, type="l" ))
 ```
 
